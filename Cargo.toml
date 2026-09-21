@@ -1,0 +1,23 @@
+[package]
+name = "agentmoving"
+version = "0.1.0"
+edition = "2024"
+description = "Offline, cross-platform migration of native coding-agent sessions"
+
+[dependencies]
+anyhow = "1.0"
+clap = { version = "4.6", features = ["derive"] }
+crossterm = "0.29"
+ratatui = { version = "0.30", default-features = false, features = ["crossterm"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+sha2 = "0.10"
+tempfile = "3"
+walkdir = "2"
+zip = { version = "6", default-features = false, features = ["deflate"] }
+chrono = { version = "0.4", default-features = false, features = ["clock"] }
+
+[profile.release]
+lto = "thin"
+strip = true
+codegen-units = 1
